@@ -1,0 +1,33 @@
+# config/frontier_scanner.yaml
+
+frontier_scanner:
+  ros__parameters:
+    map_topic: "/map"
+    costmap_topic: "/global_costmap/costmap"
+    publish_frontiers_topic: "/frontiers"
+    publish_candidates_topic: "/frontier_candidates"
+    publish_scores_topic: "/frontier_scores"
+    frequency: 0.33
+    path_service: "/planner_server/get_plan"
+    connectivity: "4"
+    reduction: "none" # "none", "random", "stride", "dbscan"
+    dbscan_eps: 3.1
+    dbscan_min_pts: 7
+    stride_step: 3
+    n_random: 5
+    metric: "euclidean" # "euclidean", "path_length", "dim_cluster", "pseudo_info_gain"
+    robot_frame: "base_footprint"
+    global_frame: "map"
+    occupancy_threshold: 20
+    unknown_value: -1
+    info_gain_radius: 5 # cells
+    medoids_choice: "nearest" # "random", "pseudo_centroid", "nearest"
+
+goal_manager:
+  ros__parameters:
+    dynamic: false
+    action_server_name: "/navigate_to_pose"
+    change_threshold: 0.2
+    candidates_topic: "/frontier_candidates"
+    scores_topic: "/frontier_scores"
+    tresh_front: 10

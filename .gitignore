@@ -1,0 +1,4 @@
+prove_run.sh
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/

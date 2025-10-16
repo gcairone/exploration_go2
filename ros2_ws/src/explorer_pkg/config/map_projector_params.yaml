@@ -1,0 +1,25 @@
+map_projector:
+  ros__parameters:
+    # Filtri altezza (metri)
+    z_min: -0.2        # Soglia minima per punti pavimento
+    z_max: 0.6         # Soglia massima per punti considerati
+    
+    obstacle_thresh: 2  # Numero minimo punti ostacolo per cella occupata
+    known_thresh: 1     # Numero minimo punti pavimento per cella libera
+    
+    resolution: 0.2     # Risoluzione in metri per cella
+    width: 60.0         # Larghezza griglia in metri
+    height: 60.0        # Altezza griglia in metri
+
+    l1_cloud_topic: "/utlidar/cloud" # Topic PointCloud2 in ingresso, da l1
+    lio_sam_cloud_topic: "/lio_sam_ros2/mapping/cloud_registered" # Topic PointCloud2 in ingresso, da lio_sam
+    l1_cloud_skip: 4   # Salta n messaggi da l1
+    lio_sam_cloud_skip: 2 # Salta n messaggi da lio_sam
+    map_topic: "/projected_map"       # Topic OccupancyGrid in uscita
+    publish_interval: 2.0  # Intervallo di pubblicazione in secondi
+
+    # Parametri Bayesiani
+    prob_pos_tresh: 0.7      # Soglia probabilità per cella occupata
+    prob_neg_tresh: 0.3      # Soglia probabilità per cella libera
+    log_odds_max_incr: 0.9   # Incremento massimo log-odds per aggiornamento
+    log_odds_min_incr: 0.2   # Incremento minimo log-odds per aggiornamento
