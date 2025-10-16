@@ -1,4 +1,8 @@
 prove_run.sh
+attach.sh
 ros2_ws/build/
 ros2_ws/install/
 ros2_ws/log/
+share/2readme.txt
+share/readme.txt
+share/params_mid360.yaml
