@@ -1,0 +1,45 @@
+# Simulation environment on ROS2 Humble / Ubuntu 22.04 (Gazebo classic, TurtleBot3, slam_toolbox, Nav2).
+# The original Dockerfile targets ROS2 Foxy (Ubuntu 20.04), as used on the robot.
+#
+#   docker build -f Dockerfile.humble -t exploration_go2:humble .
+#   docker run -it --rm -v $PWD:/root/exploration_go2 exploration_go2:humble
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates curl gnupg2 lsb-release locales \
+    && locale-gen en_US en_US.UTF-8 \
+    && rm -rf /var/lib/apt/lists/*
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+
+RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+        -o /usr/share/keyrings/ros-archive-keyring.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu jammy main" \
+        > /etc/apt/sources.list.d/ros2.list
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ros-humble-ros-base \
+        ros-humble-gazebo-ros-pkgs \
+        ros-humble-turtlebot3-msgs \
+        ros-humble-turtlebot3-description \
+        ros-humble-turtlebot3-gazebo \
+        ros-humble-navigation2 \
+        ros-humble-nav2-bringup \
+        ros-humble-slam-toolbox \
+        ros-humble-rviz2 \
+        ros-humble-pcl-ros \
+        ros-humble-pcl-conversions \
+        ros-humble-tf2-sensor-msgs \
+        ros-humble-tf2-geometry-msgs \
+        ros-humble-tf-transformations \
+        python3-colcon-common-extensions \
+        python3-numpy python3-scipy python3-matplotlib python3-pil python3-transforms3d \
+        build-essential cmake git \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV TURTLEBOT3_MODEL=burger
+SHELL ["/bin/bash", "-c"]
+RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+WORKDIR /root/exploration_go2
+CMD ["/bin/bash"]

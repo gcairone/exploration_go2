@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="default">
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+    <scene><shadows>false</shadows></scene>
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <model name="four_rooms_walls">
+      <static>true</static>
+      <link name="w0"><pose>0.0000 4.0500 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>8.200 0.100 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>8.200 0.100 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w1"><pose>0.0000 -4.0500 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>8.200 0.100 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>8.200 0.100 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w2"><pose>-4.0500 0.0000 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>0.100 8.000 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.100 8.000 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w3"><pose>4.0500 0.0000 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>0.100 8.000 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.100 8.000 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w4"><pose>0.0000 -3.2500 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>0.100 1.500 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.100 1.500 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w5"><pose>0.0000 0.0000 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>0.100 3.000 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.100 3.000 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w6"><pose>0.0000 3.2500 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>0.100 1.500 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.100 1.500 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w7"><pose>-3.2500 0.0000 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>1.500 0.100 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>1.500 0.100 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w8"><pose>0.0000 0.0000 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>3.000 0.100 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>3.000 0.100 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <link name="w9"><pose>3.2500 0.0000 0.5 0 0 0.000000</pose>
+        <collision name="c"><geometry><box><size>1.500 0.100 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>1.500 0.100 1.0</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+    </model>
+  </world>
+</sdf>

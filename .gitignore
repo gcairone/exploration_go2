@@ -10,3 +10,7 @@ share/params_mid360.yaml
 # Markdown: solo il README e' versionato
 *.md
 !README.md
+
+# Python bytecode
+__pycache__/
+*.pyc
